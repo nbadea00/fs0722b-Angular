@@ -5,7 +5,7 @@ import { Post } from '../interface/post';
   providedIn: 'root',
 })
 export class PostService {
-  constructor() {}
+  constructor() { }
 
   /*
   posts: Post[] = [
@@ -42,19 +42,23 @@ export class PostService {
   ];
   */
 
-  getFilterPosts(param:boolean): Post[] {
-    return this.posts.filter((element:Post) => element.active ==  param)
+  getFilterPosts(param: boolean): Post[] {
+    return this.posts.filter((element: Post) => element.active == param)
   }
 
-  b = this.getPost()
+  b = this.getPost()    //prende il metodo getPost() della classe
 
-  posts:Post[] = [];
+  posts: Post[] = [];
 
-  async getPost(){
-    let post:Post[] = []
-    let a = await fetch("assets/db.json").then((response)=> response.json()).then((data) => post = data )
-    this.posts =  post;
-    console.log(this.posts);
+  async getPost() {        //function asincrona per salvare in locale la lista di post
+    let post: Post[] = []    //variabile per recuperare i dati del fetch
+    let a = await fetch("assets/db.json").then((response) => response.json()).then((data) => post = data)
+    this.posts = post;   //passaggio dei dati della variabile post alla proprietà posts della classe
+
+  }
+  updatePost(id: number) {
+    this.posts.forEach((post) => { if (post.id == id) { (post.active) ? post.active = false : post.active = true } });
+
   }
   /*
   async getFilterPosts(param:boolean): Promise<Post[]> {

@@ -12,7 +12,8 @@ const routes: Routes = [
   {
     path: 'active-posts',
     component: ActivePostComponent
-  },{
+  },
+  {
     path: 'inactive-posts',
     component: InactivePostComponent
   }

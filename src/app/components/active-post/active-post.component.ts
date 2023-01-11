@@ -5,14 +5,13 @@ import { PostService } from 'src/app/service/post.service';
 @Component({
   selector: 'app-active-post',
   templateUrl: './active-post.component.html',
-  styleUrls: ['./active-post.component.scss']
+  styleUrls: ['./active-post.component.scss'],
 })
 export class ActivePostComponent implements OnInit {
-
-  posts:Post[] = this.postServ.getPostActive();
-  constructor(private postServ:PostService) { }
+  posts: Post[] = [];
+  constructor(private postServ: PostService) {}
 
   ngOnInit(): void {
+    this.postServ.getFilterPosts(true).then((data) => (this.posts = data));
   }
-
 }

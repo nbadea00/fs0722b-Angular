@@ -12,8 +12,14 @@ export class InactivePostComponent implements OnInit {
   constructor(private postServ: PostService) {}
 
   ngOnInit(): void {
+    this.posts = this.postServ.getFilterPosts(false)
+  }
+
+  /*
+  ngOnInit(): void {
     this.postServ.getFilterPosts(false).then((data) => (this.posts = data));
   }
+  */
 
 
 }

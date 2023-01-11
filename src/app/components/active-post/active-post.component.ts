@@ -12,6 +12,12 @@ export class ActivePostComponent implements OnInit {
   constructor(private postServ: PostService) {}
 
   ngOnInit(): void {
+    this.posts = this.postServ.getFilterPosts(true)
+  }
+
+  /*
+  ngOnInit(): void {
     this.postServ.getFilterPosts(true).then((data) => (this.posts = data));
   }
+  */
 }

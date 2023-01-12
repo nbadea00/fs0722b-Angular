@@ -22,8 +22,7 @@ export class UsersService {
   }
 
   getUser(id:number): User[]{
+    console.log(id)
     return this.users.filter((el: User) => el.id == id)
-
   }
-
 }

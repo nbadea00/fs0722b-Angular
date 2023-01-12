@@ -5,9 +5,7 @@ import { Post } from '../interface/post';
   providedIn: 'root',
 })
 export class PostService {
-  constructor() {
-    this.callFetch();
-  }
+  constructor() {}
 
   posts: Post[] = [];
 

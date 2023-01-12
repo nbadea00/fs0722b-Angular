@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostService } from './service/post.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-first-project';
+  constructor(private postServ:PostService){
+    this.postServ.callFetch();
+  }
 }

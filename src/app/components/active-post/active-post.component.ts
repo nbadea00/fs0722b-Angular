@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, SimpleChange} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Post } from 'src/app/interface/post';
 import { PostService } from 'src/app/service/post.service';
 
@@ -7,23 +7,11 @@ import { PostService } from 'src/app/service/post.service';
   templateUrl: './active-post.component.html',
   styleUrls: ['./active-post.component.scss'],
 })
-export class ActivePostComponent implements OnInit, DoCheck {
+export class ActivePostComponent implements OnInit {
   posts: Post[] = [];
-  constructor(private postServ: PostService) {}
+  constructor(public postServ: PostService) {}
 
   ngOnInit(): void {
-    this.posts = this.postServ.getFilterPosts(true)
-
+    this.posts = this.postServ.getPosts();
   }
-  ngDoCheck(): void {
-    this.posts = this.postServ.getFilterPosts(true)
-
-}
-
-
-  /*
-  ngOnInit(): void {
-    this.postServ.getFilterPosts(true).then((data) => (this.posts = data));
-  }
-  */
 }
